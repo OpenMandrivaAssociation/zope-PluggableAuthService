@@ -1,37 +1,33 @@
-%define product		PluggableAuthService
-%define realVersion     1.4.1
-%define release         1
-
-%define version %(echo %{realVersion} | sed -e 's/-/./g')
+%define Product PluggableAuthService
+%define product pluggableauthservice
+%define name    zope-%{Product}
+%define version 1.5
+%define release %mkrel 1
 
 %define zope_minver	2.7
 %define plone_minver	2.0
-
 %define zope_home	%{_prefix}/lib/zope
 %define software_home	%{zope_home}/lib/python
 
-Summary:	This product defines a fully-pluggable user folder, intended for use in all Zope sites
-Name:		zope-%{product}
+Name:		%{name}
 Version:	%{version}
-Release:	%mkrel %{release}
+Release:	%{release}
+Summary:	This product defines a fully-pluggable user folder, intended for use in all Zope sites
 License:	GPL
 Group:		System/Servers
-Source:		http://www.zope.org/Products/PluggableAuthService/PluggableAuthService-%{version}/PluggableAuthService-%{version}.tar.bz2
-URL:		http://www.zope.org/Products/PluggableAuthService
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
-BuildArch:	noarch
+URL:        http://www.zope.org/Products/%{Product}
+Source:     http://zope.org/Products/%{Product}/%{Product}-%{version}/%{Product}-%{version}.tar.gz
 Requires:	zope >= %{zope_minver}
 Requires:	plone >= %{plone_minver}
-
-Provides:	plone-Faq == %{version}
-Obsoletes:	zope-Faq
+BuildArch:  noarch
+BuildRoot:  %{_tmppath}/%{name}-%{version}
 
 
 %description
 This product defines a fully-pluggable user folder, intended for use in all Zope sites
 
 %prep
-%setup -c
+%setup -c -q
 
 %build
 # Not much, eh? :-)
@@ -40,7 +36,7 @@ This product defines a fully-pluggable user folder, intended for use in all Zope
 %install
 %{__rm} -rf %{buildroot}
 %{__mkdir_p} %{buildroot}/%{software_home}/Products
-%{__cp} -a %{product}-%{version} %{buildroot}%{software_home}/Products/%{product}
+%{__cp} -a %{Product} %{buildroot}%{software_home}/Products/
 
 
 %clean
@@ -57,7 +53,5 @@ if [ -f "%{_prefix}/bin/zopectl" ] && [ "`%{_prefix}/bin/zopectl status`" != "da
 fi
 
 %files
-%defattr(0644, root, root, 0755)
+%defattr(-,root,root)
 %{software_home}/Products/*
-
-
