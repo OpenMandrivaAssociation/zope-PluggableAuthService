@@ -1,8 +1,8 @@
 %define Product PluggableAuthService
 %define product pluggableauthservice
 %define name    zope-%{Product}
-%define version 1.5
-%define release %mkrel 2
+%define version 1.5.1
+%define release %mkrel 1
 
 %define zope_minver	2.7
 %define plone_minver	2.0
