@@ -35,7 +35,7 @@ This product defines a fully-pluggable user folder, intended for use in all Zope
 %install
 %{__rm} -rf %{buildroot}
 %{__mkdir_p} %{buildroot}/%{software_home}/Products
-%{__cp} -a %{Product} %{buildroot}%{software_home}/Products/
+%{__cp} -a %{Product}-%{version} %{buildroot}%{software_home}/Products/
 
 
 %clean
