@@ -2,7 +2,7 @@
 %define product pluggableauthservice
 %define name    zope-%{Product}
 %define version 1.5.2
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define zope_minver	2.7
 %define plone_minver	2.0
@@ -36,7 +36,8 @@ This product defines a fully-pluggable user folder, intended for use in all Zope
 %{__rm} -rf %{buildroot}
 %{__mkdir_p} %{buildroot}/%{software_home}/Products
 %{__cp} -a %{Product}-%{version} %{buildroot}%{software_home}/Products/
-
+%{__mv} %{buildroot}%{software_home}/Products/%{Product}-%{version} \
+	%{buildroot}%{software_home}/Products/%{Product}
 
 %clean
 %{__rm} -rf %{buildroot}
