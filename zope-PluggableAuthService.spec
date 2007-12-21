@@ -20,6 +20,7 @@ Source:		http://zope.org/Products/%{Product}/%{Product}-%{version}/%{Product}-%{
 Requires:	zope >= %{zope_minver}
 Requires:	zope-Plone >= %{plone_minver}
 BuildArch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 This product defines a fully-pluggable user folder, intended for use in all Zope sites
