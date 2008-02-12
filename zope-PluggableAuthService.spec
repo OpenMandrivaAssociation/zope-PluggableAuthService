@@ -23,7 +23,8 @@ BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
-This product defines a fully-pluggable user folder, intended for use in all Zope sites
+This product defines a fully-pluggable user folder, intended for use in all
+Zope sites
 
 %prep
 %setup -c -q
