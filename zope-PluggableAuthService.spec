@@ -15,7 +15,7 @@ Release:	%{release}
 Summary:	This product defines a fully-pluggable user folder, intended for use in all Zope sites
 License:	GPL
 Group:		System/Servers
-URL:		http://www.zope.org/Products/%{Product}
+URL:		https://www.zope.org/Products/%{Product}
 Source:		http://zope.org/Products/%{Product}/%{Product}-%{version}/%{Product}-%{version}.tar.gz
 Requires:	zope >= %{zope_minver}
 Requires:	zope-Plone >= %{plone_minver}
